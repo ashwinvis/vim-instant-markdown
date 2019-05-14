@@ -84,10 +84,12 @@ function! s:startDaemon(initialMDLines)
     if !g:instant_markdown_allow_external_content
         let env .= 'INSTANT_MARKDOWN_BLOCK_EXTERNAL=1 '
     endif
+    let s:argv = ''
     if g:instant_markdown_mathjax
-        let s:argv = ' --mathjax'
-    else
-        let s:argv = ''
+        let s:argv .= ' --mathjax'
+    endif
+    if exists('g:instant_markdown_browser')
+        let s:argv .= ' --browser='.g:instant_markdown_browser
     endif
 
     call s:systemasync(env.'instant-markdown-d'.s:argv, a:initialMDLines)

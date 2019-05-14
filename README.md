@@ -123,6 +123,20 @@ uses MathJax and launches the node server as `instant-markdown-d --mathjax`.
 let g:instant_markdown_mathjax = 1
 ```
 
+### g:instant_markdown_browser
+By default, vim-install-markdown will use the default browser. If you want to
+use an another browser, you can specify
+
+```vim
+let g:instant_markdown_browser = 'firefox'
+```
+
+You can even use it to open markdown preview in a new window
+
+```vim
+let g:instant_markdown_browser = '"firefox --new-window"'
+```
+
 Supported Platforms
 -------------------
 OSX, Unix/Linuxes*, and Windows**.
